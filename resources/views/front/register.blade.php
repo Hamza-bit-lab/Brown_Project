@@ -40,7 +40,4 @@
 
         </div>
     </div>
-    <div>
-        this is new code
-    </div>
 @endsection
