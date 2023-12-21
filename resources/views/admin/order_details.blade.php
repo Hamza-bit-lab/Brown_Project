@@ -4,7 +4,7 @@
 @section('container')
     <h1 class="mb10">Order - {{$orders_details[0]->id}}</h1>
     <div class="order_operation">
-        <b>Track Details</b>
+        <b>Track Order details</b>
         <form method="post">
             <textarea name="track_details" class="form-control  m-b-10"
                       required>{{$orders_details[0]->track_details}}</textarea>
