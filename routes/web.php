@@ -18,6 +18,7 @@ use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductReviewController;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -188,4 +189,5 @@ Route::group(['middleware' => 'user_auth'], function () {
 
 });
 Route::get('admin/attribute/delete/{id}', [ProductAttributeController::class, 'delete']);
+
 

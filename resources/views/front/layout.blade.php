@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('page_title')</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+
     <link href="{{asset('front-assets/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('front-assets/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('front-assets/css/jquery.smartmenus.bootstrap.css')}}" rel="stylesheet">
@@ -16,6 +22,7 @@
     <link id="switcher" href="{{asset('front-assets/css/theme-color/default-theme.css')}}" rel="stylesheet">
     <link href="{{asset('front-assets/css/sequence-theme.modern-slide-in.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('front-assets/css/style.css')}}" rel="stylesheet">
+
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -28,17 +35,16 @@
     </script>
 </head>
 <body class="productPage">
-<!-- wpf loader Two -->
-{{--<div id="wpf-loader-two">--}}
-{{--    <div class="wpf-loader-two-inner">--}}
-{{--        <span>Loading</span>--}}
-{{--    </div>--}}
-{{--</div>--}}
-<!-- / wpf loader Two -->
-<!-- SCROLL TOP BUTTON -->
-<a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
-<!-- END SCROLL TOP BUTTON -->
 
+<a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+@if(session()->has('message'))
+    <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+        {{session('message')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+@endif
 <!-- Start header section -->
 <header id="aa-header">
     <!-- start header top  -->
@@ -108,33 +114,7 @@
 {{--                                <span class="aa-cart-title text-success">SHOPPING CART</span>--}}
 {{--                                <span class="aa-cart-notify">{{$totalCartItem}}</span>--}}
                             </a>
-{{--                            <div class="aa-cartbox-summary">--}}
-{{--                                @if($totalCartItem > 0)--}}
-{{--                                    <ul>--}}
-{{--                                        @php--}}
-{{--                                            $totalPrice = 0;--}}
-{{--                                        @endphp--}}
-{{--                                        @foreach($cartCount as $cartItem)--}}
-{{--                                            @php--}}
-{{--                                                $totalPrice += ($cartItem->productAttribute->price * $cartItem->qty);--}}
-{{--                                            @endphp--}}
-{{--                                            <li>--}}
-{{--                                                <a href="#"><img src="{{ asset('images/'.$cartItem->product->image) }}" width="35px" height="45px" alt="img"></a>--}}
-{{--                                                <div class="aa-cartbox-info">--}}
-{{--                                                    <h4><a href="#">{{ $cartItem->product->name }}</a></h4>--}}
-{{--                                                    <p>{{ $cartItem->qty }} * Rs {{ $cartItem->productAttribute->price }}</p>--}}
-{{--                                                </div>--}}
-{{--                                            </li>--}}
-{{--                                        @endforeach--}}
-{{--                                        <li>--}}
-{{--                                            <span class="aa-cartbox-total-title">Total</span>--}}
-{{--                                            <span class="aa-cartbox-total-price">Rs {{ $totalPrice }}</span>--}}
-{{--                                        </li>--}}
-{{--                                    </ul>--}}
-{{--                                    <a class="aa-cartbox-checkout aa-primary-btn" href="{{ url('/cart') }}">Cart</a>--}}
-{{--                                @endif--}}
 
-{{--                            </div>--}}
                         </div>
                         <!-- / cart box -->
                         <!-- search box -->
@@ -181,6 +161,7 @@
 
 @section('container')
 @show
+
 
 <!-- footer -->
 <footer id="aa-footer">
@@ -234,7 +215,6 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="aa-footer-widget">
                                     <div class="aa-footer-widget">
-                                        <h3>Contact Us</h3>
                                         <address>
                                             <p>Lahore</p>
                                             <p><span class="fa fa-phone"></span>+92 301 2424249</p>
@@ -329,6 +309,9 @@ else{
     </div><!-- /.modal-dialog -->
 </div>
 
+
+
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{asset('front-assets/js/bootstrap.js')}}"></script>
@@ -342,7 +325,6 @@ else{
 <script type="text/javascript" src="{{asset('front-assets/js/nouislider.js')}}"></script>
 
 @yield('js')
-
 <script src="{{asset('front-assets/js/custom.js')}}"></script>
 
 
@@ -350,7 +332,6 @@ else{
     $(document).ready(function() {
         console.log("Document ready!");
 
-        // Simulate a delay of 3 seconds (remove this in your actual code)
         setTimeout(function() {
             $('#wpf-loader-two').fadeOut('slow', function() {
                 $(this).remove();
@@ -358,6 +339,19 @@ else{
         }, 3000);
     });
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/6585854007843602b804c459/1hi8p11qg';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 
 </html>

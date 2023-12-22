@@ -146,6 +146,10 @@
                         <a href="{{url('admin/product_reviews')}}">
                             <i class="fa fa-user"></i>Reviews</a>
                     </li>
+                    <li class="@yield('messages_select')">
+                        <a href="{{url('admin/messages')}}">
+                            <i class="fa fa-user"></i>Messages</a>
+                    </li>
 
                 </ul>
             </nav>
@@ -204,5 +208,6 @@
 <script src="{{asset('admin-assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
 <script src="{{asset('admin-assets/vendor/wow/wow.min.js')}}"></script>
 <script src="{{asset('admin-assets/js/main.js')}}"></script>
+
 </body>
 </html>
